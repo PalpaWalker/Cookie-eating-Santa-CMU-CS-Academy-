@@ -1,0 +1,134 @@
+app.background = gradient('black', 'black')
+
+Label('Merry', 40, 200, size=25, fill='red')
+Label('Christmas', 345, 200, size=23, fill='green')
+
+numBites = 0
+
+#arms
+Line(130, 130, 50, 155, lineWidth=10, fill='red')
+Circle(45, 155, 10, fill='white')
+Line(330, 130, 50, 360, lineWidth=10, fill='red')
+Circle(330, 130, 10, fill='white')
+
+#santa's belly
+Circle(200, 160, 100, fill='red')
+
+#santa's buckles/buttons on coat
+Rect(185, 100, 35, 105, fill='black')
+Rect(193, 110, 15, 10, fill='yellow')
+Rect(193, 150, 15, 10, fill='yellow')
+Rect(193, 185, 15, 10, fill='yellow')
+Rect(192, 175, 20, 100, rotateAngle=90,  fill='black')
+Rect(190, 210, 20, 30, border='yellow', fill='black')
+
+#santa's beard/mouth
+Circle(200, 20, 32, fill='pink')
+Circle(200, 20, 10, fill='black')
+Circle(130, 80, 28, fill='white')
+Circle(170, 80, 28, fill='white')
+Circle(215, 80, 28, fill='white')
+Circle(265, 80, 28, fill='white')
+Circle(130, 50, 25, fill='white')
+Circle(175, 50, 25, fill='white')
+Circle(215, 50, 25, fill='white')
+Circle(255, 50, 25, fill='white')
+Circle(160, 20, 25, fill='white')
+Circle(240, 20, 25, fill='white')
+
+#table
+Rect(0, 243, 400, 400, fill='lightGray')
+
+#cookies in background
+Oval(15, 270, 100, 80, border='brown', fill='sienna')
+Oval(105, 290, 120, 80, border='brown', fill='sienna')
+Oval(365, 270, 100, 80, border='brown', fill='sienna')
+Oval(305, 290, 120, 80, border='brown', fill='sienna')
+Circle(305, 300, 5, fill='sienna')
+Circle(290, 295, 5, fill='sienna')
+Circle(260, 290, 5, fill='sienna')
+Circle(105, 320, 5, fill='sienna')
+Circle(110, 295, 5, fill='sienna')
+Circle(135, 280, 5, fill='sienna')
+
+#cookies eaten
+bit1=Oval(120, 260, 55, 30, visible=False, fill='lightGray')
+bit2=Oval(130, 280, 55, 30, visible=False,  fill='lightGray')
+bit3=Oval(160, 290, 55, 30, visible=False, fill='lightGray')
+bit4=Oval(120, 320, 60, 30, visible=False, fill='lightGray')
+bit5=Oval(120, 305, 50, 30, visible=False, fill='lightGray')
+bit6=Oval(240, 280, 50, 30, visible=False, fill='lightGray')
+bit7=Oval(250, 295, 50, 30, visible=False, fill='lightGray')
+bit8=Oval(275, 298, 50, 30, visible=False, fill='lightGray')
+bit9=Oval(295, 320, 50, 30, visible=False, fill='lightGray')
+bit10=Oval(280, 275, 50, 45, visible=False, fill='lightGray')
+bit11=Oval(90, 260, 50, 30, visible=False, fill='lightGray')
+bit12=Oval(90, 280, 50, 40, visible=False, fill='lightGray')
+bit13=Oval(320, 280, 50, 35, visible=False, fill='lightGray')
+bit14=Oval(320, 310, 50, 30, visible=False, fill='lightGray')
+bit15=Oval(40, 300, 50, 60, visible=False, fill='lightGray')
+bit16=Oval(75, 315, 50, 120, visible=False, fill='lightGray')
+#cup's base
+Oval(200, 320, 120, 35, fill='dodgerBlue', opacity=30)
+
+#milk
+Oval(200, 320, 105, 22, fill='white', opacity=100)
+Oval(200, 320, 120, 35, opacity=30,
+     fill=gradient('royalBlue', 'white', 'lightSkyBlue', 'lightSkyBlue',
+                   'white', 'royalBlue', start='left'))
+milk = Line(200, 320, 200, 165, fill='white', opacity=100, lineWidth=105)
+milk.level = 100
+
+#glass cup
+Rect(140, 90, 120, 230, opacity=20,
+     fill=gradient('royalBlue', 'white', 'lightSkyBlue', 'lightSkyBlue',
+                   'white', 'royalBlue', start='left'))
+Rect(140, 90, 120, 260, opacity=10,
+     fill=gradient(rgb(190, 190, 170), 'white', start='bottom'))
+Circle(230, 300, 10, fill=None, border='seaShell', opacity=80)
+Circle(225, 295, 7, fill=None, border='seaShell', opacity=80)
+Circle(230, 280, 5, fill=None, border='seaShell', opacity=80)
+Circle(200, 300, 5, fill=None, border='seaShell', opacity=80)
+Circle(215, 310, 3, fill=None, border='seaShell', opacity=80)
+Circle(240, 254, 3, fill=None, border='seaShell', opacity=80)
+
+#milk gets drank
+def onMousePress(mouseX, mouseY):
+    global numBites
+    milk.y2 += 10
+    numBites +=1
+    if (milk.y2 >= 320):
+        milk.y2 = 320
+    if (numBites == 1 ):
+        bit1.visible = True
+        #numBites +=2
+    if (numBites == 2):
+        bit2.visible = True
+    if  (numBites ==3):
+        bit3.visible = True
+    if (numBites == 4):
+        bit4.visible = True
+    if (numBites ==5):
+        bit5.visible = True
+    if (numBites == 6):
+        bit6.visible = True
+    if (numBites ==7):
+        bit7.visible = True
+    if (numBites==8):
+        bit8.visible = True
+    if (numBites==9):
+        bit9.visible = True
+    if (numBites==10):
+        bit10.visible = True
+    if (numBites==11):
+        bit11.visible = True
+    if (numBites==12):
+        bit12.visible = True
+    if (numBites==13):
+        bit13.visible = True
+    if (numBites==14):
+        bit14.visible = True
+    if (numBites==15):
+        bit15.visible = True
+    if (numBites==16):
+        bit16.visible = True
